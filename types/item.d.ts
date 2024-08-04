@@ -1,4 +1,140 @@
-import "./attachment";
+import "./identity";
+
+declare interface AspectSize {
+  height: number;
+  width: number;
+}
+
+declare interface FocalPoint {
+  x: number;
+  y: number;
+}
+
+/**
+ * {@link Item}s can also have media attachments. Photos, videos, and audio are commonly available from APIs and other data sources, and this is how you get them into the timeline. They will be displayed under the HTML content.
+ *
+ * @example
+ * const attachment = MediaAttachment.createWithUrl(url);
+ * attachment.mimeType = "image/gif";
+ * attachment.text = "Yet another cat on the Internet.";
+ * attachment.aspectSize = {width: 300, height: 400};
+ * attachment.focalPoint = {x: 0, y: 0};
+ *
+ * item.attachments = [attachment];
+ */
+declare class MediaAttachment {
+  static createWithUrl(url: string): MediaAttachment;
+
+  /**
+   * A string containing the URL for the media on the Internet.
+   */
+  get url(): string;
+  set url(value: string);
+
+  /**
+   * A string containing the URL for a lower resolution copy of the media. This is assumed to be an image file.
+   */
+  get thumbnail(): string | undefined;
+  set thumbnail(value: string);
+
+  /**
+   * A string that lets Tapestry know what kind of media is being attached. Currently supported types are "image", "video", and "audio". A subtype, such as "jpeg", "png", or "gif" can be supplied, but does not affect how the media is displayed.
+
+If this value isn't provided, the file name extension for {@link MediaAttachment#url} will be used. If there is no file extension, "image" will be assumed.
+   */
+  get mimeType(): string | undefined;
+  set mimeType(value: string);
+
+  /**
+   * A string that provides a placeholder image.
+   */
+  get blurhash(): string | undefined;
+  set blurhash(value: string);
+
+  /**
+   * A string that describes the media (for accessibility)
+   */
+  get text(): string | undefined;
+  set text(value: string);
+
+  /**
+   * An object with `width` and `height` properties. The values are used to optimize the media placement in the timeline.
+   */
+  get aspectSize(): AspectSize | undefined;
+  set aspectSize(value: AspectSize);
+
+  /**
+   * An object with `x` and `x` properties. The values are used to center media in the timeline. If no values are specified, the center at `(0, 0)` is assumed.
+   */
+  get focalPoint(): FocalPoint | undefined;
+  set focalPoint(value: FocalPoint);
+}
+
+declare class LinkAttachment {
+  static createWithUrl(url: string): LinkAttachment;
+
+  /**
+   * A string containing the URL for the link on the Internet.
+   */
+  get url(): string;
+  set url(value: string);
+
+  /**
+   * The type of link, typically an Open Graph [`og:type`](https://ogp.me/#types).
+   */
+  get type(): string | undefined;
+  set type(value: string);
+
+  /**
+   * The title for the link, typically an Open Graph [`og:title`](https://ogp.me/#metadata).
+   */
+  get title(): string | undefined;
+  set title(value: string);
+
+  /**
+   * The subtitle for the link, typically an Open Graph [`og:description`](https://ogp.me/#optional).
+   */
+  get subtitle(): string | undefined;
+  set subtitle(value: string);
+
+  /**
+   * The site name for the link, typically an Open Graph [`og:site_name`](https://ogp.me/#optional).
+   */
+  get siteName(): string | undefined;
+  set siteName(value: string);
+
+  /**
+   * The author's name, typically as [HTML author metadata](https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html#meta-author).
+   */
+  get authorName(): string | undefined;
+  set authorName(value: string);
+
+  /**
+   * An image for the link, typically the Open Graph [`og:image`](https://ogp.me/#metadata).
+   */
+  get image(): string | undefined;
+  set image(value: string);
+
+  /**
+   * A URL for the author, typically from [`fediverse:creator`](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/).
+   */
+  get authorProfile(): string | undefined;
+  set authorProfile(value: string);
+
+  /**
+   * A string that provides a placeholder image.
+   */
+  get blurhash(): string | undefined;
+  set blurhash(value: string);
+
+  /**
+   An object with `width` and `height` properties, typically from Open Graph [`og:image:width`](https://ogp.me/#structured) and [`og:image:height`](https://ogp.me/#structured).
+   */
+  get aspectSize(): AspectSize | undefined;
+  set aspectSize(value: AspectSize);
+}
+
+declare type Attachment = MediaAttachment | LinkAttachment;
 
 declare class Item {
   static createWithUriDate(uri: string, date: Date): Item;
