@@ -1,6 +1,6 @@
 # tapestry-type-defs
 
-This repo provides TypeScript type definitions for the [Tapestry Connector API](https://github.com/TheIconfactory/Tapestry/blob/main/Documentation/API.md#load). Please note that these are in no way official, accurate or up-to-date; I built them to learn their API and help myself tinker with building out Connectors. Use at your own risk!
+This repo provides TypeScript type definitions for the [Tapestry Connector API](https://github.com/TheIconfactory/Tapestry/blob/main/Documentation/API.md). Please note that these are in no way official, accurate or up-to-date; I built them to learn their API and help myself tinker with building out Connectors. Use at your own risk!
 
 ## Usage
 
