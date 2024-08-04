@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"tapestry-type-defs@workspace:.":
+"@alexlafroscia/tapestry-type-defs@workspace:.":
   version: 0.0.0-use.local
-  resolution: "tapestry-type-defs@workspace:."
+  resolution: "@alexlafroscia/tapestry-type-defs@workspace:."
   dependencies:
     typescript: "npm:^5.5.4"
   languageName: unknown
