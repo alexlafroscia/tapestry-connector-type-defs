@@ -1,5 +1,5 @@
 declare global {
-  type Method = "GET" | "POST" | "PUT";
+  type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD";
 
   /**
    * Sends a request. If configured, a bearer token will be included with the request automatically.

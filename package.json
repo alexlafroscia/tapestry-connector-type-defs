@@ -1,13 +1,11 @@
 {
-  "name": "@alexlafroscia/tapestry-type-defs",
+  "name": "@alexlafroscia/tapestry-connector-type-defs",
   "description": "TypeScript definitions for the Tapestry Connector API",
   "type": "commonjs",
-  "exports": {
-    "types": "./types/index.d.ts"
-  },
+  "exports": "./types/index.d.ts",
   "types": "./types/index.d.ts",
-  "packageManager": "yarn@4.0.2",
   "devDependencies": {
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
